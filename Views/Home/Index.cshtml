@@ -1,0 +1,647 @@
+﻿@model realEstate.ViewModels.AllRealEstateViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+
+
+<div>
+
+
+    <div class="splide">
+        <div class="splide__track">
+            <div class="splide__list">
+                <div class="splide__slide">
+                    <div style="position:relative">
+                        <div style="width:30%;height:25%;background-color:black;position:absolute;top:70%;left:3%;opacity:0.8;border-radius:10px">
+                            <h4 style="color:white;font-size:1.5vw;padding:1em">
+                                RealEstast HTML Template is The Best Solution To Sell Property Online.
+                            </h4>
+
+                        </div>
+                        <img src="~/images/houseSlider1.jpg" style="width:100%" />
+
+
+
+                    </div>
+
+
+                </div>
+                <div class="splide__slide">
+                    <div style="position:relative">
+                        <div style="width:30%;height:25%;background-color:black;position:absolute;top:70%;left:3%;opacity:0.8;border-radius:10px">
+                            <h4 style="color:white;font-size:1.5vw;padding:1em">
+                                RealEstast HTML Template is The Best Solution To Sell Property Online.
+                            </h4>
+
+                        </div>
+                        <img src="~/images/houseSlider2.jpg" style="width:100%" />
+
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+           
+        </div>
+    </div>
+    
+
+
+
+</div>
+
+
+
+
+
+
+<div class="container-fluid">
+    <style>
+        a {
+            color: white;
+        }
+        .search-panel {
+            border-radius:4px;
+            margin-top:25px;
+            margin-bottom:25px;
+            margin-left:0;
+            margin-right:0;
+           
+            padding-top: 25px;
+            padding-bottom: 25px;
+            -webkit-box-shadow: 0px 0px 14px 1px rgba(0,0,0,0.54);
+            box-shadow: 0px 0px 14px 1px rgba(0,0,0,0.54);
+        }
+    </style>
+
+    @*choosing options*@
+
+   
+        <div class="row search-panel">
+            <div class="col-md-3">
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Property status</label>
+                    <select class="form-control" id="status">
+                        <option value="sale">For sale</option>
+                        <option value="rent">For rent</option>
+                        
+
+                    </select>
+                </div>
+             
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Rooms</label>
+                    <select class="form-control" id="rooms">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+
+                    </select>
+                </div>
+
+            </div>
+            @*<div class="col-md-4">
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Price from</label>
+                    <select class="form-control" id="priceFrom">
+                        <option value="0">0₪</option>
+                        <option value="100000">100000₪</option>
+                        <option value="200000">200000₪</option>
+                        <option value="300000">300000₪</option>
+                        <option value="400000">400000₪</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Price to</label>
+                    <select class="form-control" id="priceTo">
+                        <option>500000₪</option>
+                        <option>600000₪</option>
+                        <option>700000₪</option>
+                        <option>800000₪</option>
+                        <option>900000₪</option>
+                        <option>1000000₪</option>
+
+                    </select>
+                </div>
+
+
+
+            </div>*@
+            <div class="col-md-3">
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Location</label>
+                    <select class="form-control" id="city">
+                        <option>Tel Aviv</option>
+                        <option>Herzliya</option>
+
+
+
+                    </select>
+                </div>
+               
+
+
+            </div>
+            <div class="col-md-3">
+                <div class="form-group" style="text-align:center">
+
+
+
+                    <button onclick="f()" class="btn btn-primary" style="margin-top:10%;width:50%">GO</button>
+                    <script>
+
+
+
+                        function f() {
+
+
+                            var status = $('#status :selected').val();
+                            var rooms = $('#rooms :selected').val();
+                            var city = $('#city :selected').val();
+
+
+                            location.href = '@Url.Action("FindSutable", "Home")?status=' + status + '&rooms=' + rooms + '&city=' + city;
+
+
+                        }
+
+
+
+                    </script>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    
+    <script>
+                       
+    </script>
+
+
+    <style>
+        .table-div-img {
+            width: 7vw;
+        }
+    </style>
+
+
+    <div class="accord">
+
+        <div class="row">
+            <div >
+
+
+                <div class="panel-group" id="accordion">
+                    <style>
+                        .accord{
+                            width:80%;
+                            margin:auto;
+                        }
+                        .description {
+                            padding: 12px;
+                        }
+                        @@media (min-width: 500px) and (max-width:1000px) {
+                            .description {
+                                padding: 12px;
+                            }
+
+                            .accord{
+                                width:100%
+                            }
+                        }
+                        @@media (min-width: 100px) and (max-width:670px) {
+                            .description {
+                                padding: 12px;
+                            }
+                            .city{
+                                display:block;
+                            }
+                            .rooms {
+                                display: block;
+                            }
+                            .price {
+                                display: block;
+                            }
+                            .estate-number{
+                                display:none;
+                            }
+                            .street-hide{
+                                display:none;
+                            }
+                            .accord {
+                                width: 100%
+                            }
+                        }
+                        @@media (max-width:500px) {
+                            
+                            .flex1 {
+                                display:block !important;
+                            }
+                            .flex1 div{
+                                width:100% !important;
+                                margin:0 auto;
+                            }
+                            .modal-content{
+                                max-width:50vh !important;
+                            }
+                            .description{
+                                padding:12px;
+                            }
+                            .flex1 img{
+                                width:80%;
+                                margin:0 auto;
+                            }
+                           
+
+
+                        }
+
+
+
+
+
+                        .flex1 {
+                            
+                            background-color: #f8f9fa;
+                            border: 1px solid grey;
+                            border-radius: 3px;
+                            display:flex;
+                            margin-top: 5px;
+                            margin-bottom: 5px;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                        }
+
+                            .flex1 div {
+                                width: 15%;
+                                padding-top: 4px;
+                                padding-bottom: 4px;
+                            }
+                    </style>
+
+
+                    @foreach (var item in Model.realEstateModels)
+                    {
+
+
+                        @*image pop up styles*@
+
+                        <style>
+
+
+                            /* The Modal (background) */
+                            .modal {
+                                display: none; /* Hidden by default */
+                                position: fixed; /* Stay in place */
+                                z-index: 1; /* Sit on top */
+                                padding-top: 50px; /* Location of the box */
+                                left: 0;
+                                top: 0;
+                                width: 100%; /* Full width */
+                                height: 100%; /* Full height */
+                                overflow: auto; /* Enable scroll if needed */
+                                background-color: rgb(0,0,0); /* Fallback color */
+                                background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+                            }
+
+                            /* Modal Content (image) */
+                            .modal-content {
+                                margin: auto;
+                                display: block;
+                                width: 80%;
+                                max-width: 700px;
+                            }
+
+                            /* Caption of Modal Image */
+                            #caption {
+                                margin: auto;
+                                display: block;
+                                width: 80%;
+                                max-width: 700px;
+                                text-align: center;
+                                color: #ccc;
+                                padding: 10px 0;
+                                height: 150px;
+                            }
+
+                            /* Add Animation */
+                            .modal-content, #caption {
+                                -webkit-animation-name: zoom;
+                                -webkit-animation-duration: 0.6s;
+                                animation-name: zoom;
+                                animation-duration: 0.6s;
+                            }
+
+                            @@-webkit-keyframes zoom {
+                                from {
+                                    -webkit-transform: scale(0)
+                                }
+
+                                to {
+                                    -webkit-transform: scale(1)
+                                }
+                            }
+
+                            @@keyframes zoom {
+                                from {
+                                    transform: scale(0)
+                                }
+
+                                to {
+                                    transform: scale(1)
+                                }
+                            }
+
+                            /* The Close Button */
+                            .close {
+                                position: absolute;
+                                top: 15px;
+                                right: 35px;
+                                color: #f1f1f1;
+                                font-size: 40px;
+                                font-weight: bold;
+                                transition: 0.3s;
+                            }
+
+                                .close:hover,
+                                .close:focus {
+                                    color: #bbb;
+                                    text-decoration: none;
+                                    cursor: pointer;
+                                }
+
+                            /* 100% Image Width on Smaller Screens */
+                            @@media only screen and (max-width: 700px) {
+                                .modal-content {
+                                    width: 100%;
+                                }
+                            }
+                        </style>
+
+
+
+
+                        <!-- The Modal -->
+                        <div id="modal_@item.Image1" class="modal">
+                            <span class="close" id="close_span_@item.Image1">&times;</span>
+                            <img class="modal-content" style="width:70vh" id="modal_img_@item.Image1">
+                            <div id="caption"></div>
+                        </div>
+
+
+
+
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div id="row_real_estate_@item.RealEstateModelId"  class="flex1">
+                                    <div class="estate-number">
+                                        <span>@item.RealEstateModelId<span>.</span></span>
+                                    </div>
+                                    <div>
+                                        <img class="img-fluid" src="~/images/@item.Image1" id="img_@item.Image1" />
+                                    </div>
+                                    
+                                        <div class="city">
+                                            <span>City:@item.City</span>
+                                        </div>
+                                        <div class="street-hide">
+                                            <span>Street:@item.Adress</span>
+                                        </div>
+                                        <div class="rooms">
+                                            <span>Rooms:@item.Rooms</span>
+                                        </div>
+                                        <div class="price">
+                                            <span>Price:@item.Price</span><span> ILS</span>
+                                        </div>
+                                    
+
+                                    <div>
+                                        <button class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" onclick="detailsBtn(@item.RealEstateModelId)" href="#k_@item.RealEstateModelId">details</button>
+                                        @*<a style="color:black" data-toggle="collapse" data-parent="#accordion" href="#k_@item.RealEstateModelId">
+                        details
+
+                    </a>*@
+                                    </div>
+                                    <style>
+                                        .collapseBorders{
+                                            border:1px solid black;
+                                            border-top:0;
+                                            margin-top:-5px;
+                                            
+                                        }
+                                    </style>
+                                    <script>
+                                        function detailsBtn(par) {
+                                            console.log(par);
+                                            var el = document.getElementById("k_" + par);
+                                            el.classList.add("collapseBorders"); // add borders to collapsable item without top border
+
+                                        }
+
+                                    </script>
+
+
+                                </div>
+
+                            </div>
+
+
+                            <div id="k_@item.RealEstateModelId" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <table style="margin:0 auto;width:95%">
+                                        <tbody style="text-align:center">
+                                            <tr>
+                                                <td><strong>City:</strong></td>
+                                                <td><strong>Street:</strong> </td>
+                                                <td><strong>Rooms:</strong> </td>
+                                                <td><strong>Status:</strong></td>
+                                                <td><strong>Price:</strong></td>
+                                                <td><strong>Floor:</strong></td>
+                                            </tr>
+
+                                            <tr data-toggle="collapse" data-target="@item.Adress">
+
+
+                                                <td style="width:10%">@item.City</td>
+                                                <td class="align-middle" style="width:10%">@item.Adress</td>
+                                                <td class="align-middle" style="width:10%">@item.Rooms</td>
+                                                <td class="align-middle" style="width:10%"> @item.PropertyStatus</td>
+                                                <td class="align-middle" style="width:10%">@item.Price</td>
+                                                <td class="align-middle" style="width:10%">@item.Floor</td>
+
+
+                                            </tr>
+                                            
+
+
+                                            <tr class="buttom-table-row">
+                                                <td><strong>AC:</strong></td>
+                                                <td><strong>Parking:</strong> </td>
+                                                <td><strong>Elevator:</strong> </td>
+                                                <td><strong>Meters:</strong></td>
+                                               
+                                            </tr>
+                                            <tr >
+                                                <td>@item.AC</td>
+                                                <td>@item.Parking</td>
+                                                <td>@item.Elevator</td>
+                                                <td>@item.Meters  m<sup>2</sup></td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+                                    <style>
+                                        .buttom-table-row td{
+                                            padding-top:16px;
+
+                                        }
+                                    </style>
+                                    <div style="margin:7px 0 7px 0">
+                                        <div style="margin:5px 0 5px 0;width:80%;margin:0 auto;height:1px;background-color:grey;opacity:0.5"></div>
+
+                                    </div>
+                                 
+
+
+                                    <div class="description" style="text-align:center">
+                                        <strong>Description:</strong><span>@item.Description</span>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+                        <script>
+                // Get the modal
+
+                        var modal = document.getElementById("modal_@item.Image1");
+
+                        // Get the image and insert it inside the modal - use its "alt" text as a caption
+
+                        var img = document.getElementById("img_@item.Image1");
+                        var modalImg = document.getElementById("modal_img_@item.Image1");
+                        var captionText = document.getElementById("caption");
+                        img.onclick = function () {
+                            modal.style.display = "block";
+                            modalImg.src = this.src;
+                            captionText.innerHTML = this.alt;
+                        }
+
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementById("close_span_@item.Image1");
+
+                        // When the user clicks on <span> (x), close the modal
+
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }</script>
+
+
+
+                    }
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+    
+
+    @*@foreach (var item in Model.realEstateModels)
+    {
+
+
+
+
+        <span>@item.Adress</span>
+        <button class="btn btn-primary">@Html.ActionLink("Edit", "Edit", "Home", new { id = 4 })</button>
+        <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+        <br />
+        // <img src="~/images/@Html.DisplayFor(model =>item.AgentPhoto)" style="height:200px;width:200px;" />
+        // <img src="~/images/@Html.DisplayFor(model => item.AgentPhoto)"  />
+
+
+
+
+        <div>
+
+             Trigger the modal with a button 
+             Modal 
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                     Modal content
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-danger">@Html.ActionLink("Yes", "Delete", "Home", new { id = 5 })</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    }*@
+
+
+
+    
+
+
+</div>
+
+
+
+
+
+
+
+

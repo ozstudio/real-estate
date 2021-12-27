@@ -1,0 +1,39 @@
+﻿@model realEstate.Models.SellingAgent
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<h1>new</h1>
+
+
+
+@using (Html.BeginForm("Create", "Home"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.SellingAgentName)
+        @Html.TextBoxFor(m => m.SellingAgentName, new { @class = "form-control" })
+
+
+
+        <label for="exampleFormControlFile1">first photo</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        @Html.HiddenFor(m => m.AgentPhoto)
+
+        <button onclick="o()" type="submit" class="btn btn-primary">Save</button>
+
+
+    </div>
+
+
+}
+<script>function o() {
+        var x = document.getElementById("exampleFormControlFile1").value;
+        var res = x.substring(12);// remember to change how many charachters delete and keep only image name
+
+        document.getElementById('AgentPhoto').value = res;
+
+    }</script>
