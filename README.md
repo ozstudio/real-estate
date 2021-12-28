@@ -1,2 +1,2 @@
 # real-estate
-Asp MVC + MySql MACOS crud implementation
+Asp.net MVC + MySql MACOS crud implementation
